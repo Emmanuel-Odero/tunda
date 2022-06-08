@@ -7,7 +7,11 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "app:start": "sudo docker-compose up -d",
+        "app:stop": "sudo docker-compose down",
+        "app:ssh": "sudo docker-compose exec tunda_web_app  bash",
+        "app:logs": "sudo docker-compose logs --follow tunda_web_app"
     },
     "devDependencies": {
         "axios": "^0.25",
