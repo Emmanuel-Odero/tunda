@@ -13,7 +13,8 @@
 
         "app:stop": "sudo docker-compose down",
         "app:ssh": "sudo docker-compose exec tunda_web_app  bash",
-        "app:logs": "sudo docker-compose logs --follow tunda_web_app"
+        "app:logs": "sudo docker-compose logs --follow tunda_web_app",
+        "sail": "./vendor/bin/sail"
     },
     "devDependencies": {
         "axios": "^0.25",
