@@ -13,3 +13,4 @@ yarn-error.log
 /.idea
 /.vscode
 html-static-theme
+.packege-lock.json

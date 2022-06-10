@@ -7,7 +7,14 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "app:start": "sudo docker-compose up -d",
+        "server": "php artisan serve --port=8080",
+
+        "app:stop": "sudo docker-compose down",
+        "app:ssh": "sudo docker-compose exec tunda_web_app  bash",
+        "app:logs": "sudo docker-compose logs --follow tunda_web_app",
+        "sail": "./vendor/bin/sail"
     },
     "devDependencies": {
         "axios": "^0.25",
