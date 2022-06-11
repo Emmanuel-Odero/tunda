@@ -10,7 +10,6 @@
         "production": "mix --production",
         "app:start": "docker-compose up -d",
         "server": "php artisan serve --port=8080",
-
         "app:stop": "docker-compose down",
         "app:ssh": "docker-compose exec tunda_web_app  bash",
         "app:logs": "docker-compose logs --follow tunda_web_app",
