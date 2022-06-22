@@ -23,12 +23,14 @@ services:
         networks:
             - sail
         depends_on:
-            - mysql
+            - web_db
+            - phpmyadmin
             - redis
             - meilisearch
             - selenium
-    mysql:
+    web_db:
         image: 'mysql/mysql-server:8.0'
+        container_name: web_db
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
@@ -47,6 +49,54 @@ services:
             test: ["CMD", "mysqladmin", "ping", "-p${DB_PASSWORD}"]
             retries: 3
             timeout: 5s
+    # webdb:
+    #     image: postgres:14.2-alpine3.15
+    #     environment:
+    #         - POSTGRES_LOGGING=true
+    #         - POSTGRES_DB=tundadb
+    #         - POSTGRES_PASSWORD=secret
+    #         - POSTGRES_USER=tunda
+    #         - POSTGRES_POSTGRES_PASSWORD=secret
+    #     ports:
+    #         - "5436:5432"
+    #     restart: on-failure
+    #     volumes:
+    #         - type: volume
+    #           source: web_db
+    #           target: /var/lib/postgresql/data
+    #           volume:
+    #             nocopy: true
+    #     logging:
+    #         driver: "json-file"
+    #         options:
+    #             max-size: "200k"
+    #             max-file: "10"
+    #     networks:
+    #     - sail
+    #PgAdmin
+    # pgAdmin:
+    #     image: dpage/pgadmin4
+    #     container_name: pgadmin
+    #     environment:
+    #         - PGADMIN_DEFAULT_EMAIL=mail@tunda.com
+    #         - PGADMIN_DEFAULT_PASSWORD=secret
+    #     ports:
+    #         - "8888:80"
+    #     networks:
+    #         - sail
+    #phpmyadmin
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: 'phpmyadmin:latest'
+        ports:
+            - 9080:80
+        depends_on:
+            - web_app
+        networks: 
+            - sail
+        environment:
+            - PMA_ARBITRARY=1
+
     redis:
         image: 'redis:alpine'
         ports:
