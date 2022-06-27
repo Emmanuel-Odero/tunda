@@ -8,11 +8,15 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
+        "db:ssh": "docker-compose exec tunda_db  bash",
+        "app:build": "docker-compose build",
+        "app:hard:reboot": "docker-compose down -v && docker-compose up -d",
         "app:start": "docker-compose up -d",
+        "app:reboot": "docker-compose restart",
         "server": "php artisan serve --port=8080",
         "app:stop": "docker-compose down",
-        "app:ssh": "docker-compose exec tunda_web_app  bash",
-        "app:logs": "docker-compose logs --follow tunda_web_app",
+        "app:ssh": "docker-compose exec tunda  bash",
+        "app:logs": "docker-compose logs --follow tunda",
         "sail": "./vendor/bin/sail"
     },
     "devDependencies": {
