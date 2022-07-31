@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use function PHPUnit\Framework\returnSelf;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', function () {
     return view('index');
+});
+Route::get('/blog', function(){
+    return view('/blog');
 });
 Route::get('/shop', function(){
     return view('/shop-grid');
