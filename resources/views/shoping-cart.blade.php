@@ -48,8 +48,10 @@
                 <div>English</div>
                 <span class="arrow_carrot-down"></span>
                 <ul>
-                    <li><a href="#">Spanis</a></li>
+                    <li><a href="#">Swahili</a></li>
                     <li><a href="#">English</a></li>
+                    <li><a href="#">Spanish</a></li>
+                    <li><a href="#">French</a></li>
                 </ul>
             </div>
             <div class="header__top__right__auth">
